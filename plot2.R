@@ -1,6 +1,5 @@
 ## Read data sources in to R Dataframes
         epaRawDF <- readRDS("summarySCC_PM25.rds")
-##        sourceClassCode <- readRDS("Source_Classification_Code.rds") 
 
 ## Calcualte mean emissions from all sources in Baltimore for each of the 1999, 2002, 2005, and 2008 years      
 y1999MeanEmissions <- mean(epaRawDF[epaRawDF$year=="1999" & epaRawDF$fips=="24510", "Emissions"], na.rm = TRUE)
