@@ -45,11 +45,9 @@ library(ggplot2)
         myGr <- ggplot(data = df1, aes(x=year, y=Emissions, group=type, shape=type, colour=type))+
                 geom_line()+
                 geom_point()+
-                labs(title = "Comparison of emissions in Baltimore")
+                labs(title = "Comparison of emissions in Baltimore City by type from 1999 to 2008")
         
 ## create the plot file for plotting the results.         
         png(filename="plot3.png", width = 480, height = 480, units = "px")
         myGr
         dev.off()        
-        
-       
