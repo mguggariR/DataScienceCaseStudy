@@ -40,7 +40,7 @@ library(ggplot2)
         )
   
         myGraph <- ggplot(data = plotDF, aes(x=year, y=Emissions,group=1, shape=year, colour=year))+
-                labs(title = "Comparison of coal based emissions in USA")+ 
+                labs(title = "Change in coal based emissions in USA from 1999-2008")+ 
                 geom_point()+
                 geom_line(color="red")
 
