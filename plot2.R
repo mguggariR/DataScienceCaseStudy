@@ -14,5 +14,7 @@ yearlyEmission <- data.frame(years=c(1999, 2002, 2005, 2008),
 ## create the plot file for plotting the results.         
         png(filename="plot2.png", width = 480, height = 480, units = "px")
         plot(yearlyEmission$years, yearlyEmission$emissions, 
-                type="l", pch=20, main="Baltimore emissions from all sources", xlab="Years", ylab="Mean Emissions in tons")
+             type="l", pch=20, 
+             main="PM2.5 emissions from all sources in Baltimore from 1999-2008", 
+             xlab="Years", ylab="Mean Emissions in tons")
         dev.off()
