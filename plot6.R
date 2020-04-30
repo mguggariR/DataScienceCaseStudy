@@ -62,7 +62,7 @@ plotDF <- data.frame(
         )
 
 myGraph <- ggplot(plotDF, aes(x=year, y=Emissions, group=city, color=city)) +
-        labs(title = "Comparison of total motor vehicle emissions in Baltimore and LA")+ 
+        labs(title = "Comparison of vehicle emissions in Baltimore and LA")+ 
         geom_line(aes(linetype=city, colour=city))+
         geom_point(aes(shape=year))+
         scale_linetype_manual(values=c("twodash", "dotted"))
