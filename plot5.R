@@ -8,15 +8,14 @@ sourceClassCode <- readRDS("Source_Classification_Code.rds")
 
 ## Create combined dataframe with common source code SCC:
 
-## SCCDF <- mutate(sourceClassCode, EmSource=paste(SCC.Level.One, SCC.Level.Three, sep = " "))
 SCCDF <- select(sourceClassCode, SCC, SCC.Level.Two)
-
 CombinedDF <- merge(epaRawDF, SCCDF, by.x = "SCC")
 
-## find observations for Coal Combustion sources and form new dataframe         
+## find observations for motor vehicle sources and form a new dataframe         
 
 VehicleDF <- mutate(CombinedDF, VehicleYes=grepl("\\bVehicle\\b", SCC.Level.Two))
 
+## Find information for Baltimore City
 ## find mean for year 1999
 C1999DF <- filter(VehicleDF, fips=="24510", year=="1999", VehicleYes)
 mean1999 <- mean(C1999DF$Emissions)
@@ -40,12 +39,12 @@ plotDF <- data.frame(
 )
 
 myGraph <- ggplot(data = plotDF, aes(x=year, y=Emissions,group=1, shape=year, colour=year))+
-        labs(title = "Comparison of total motor vehicle emissions in Baltimore City")+ 
+        labs(title = "Total vehicle emissions in Baltimore City over 1999-2008")+ 
         geom_point()+
         geom_line(color="red")
 
 
 ## create the plot file for plotting the results.         
-## png(filename="plot5.png", width = 480, height = 480, units = "px")
-myGraph
-## dev.off()
+        png(filename="plot5.png", width = 480, height = 480, units = "px")
+        myGraph
+        dev.off()
